@@ -1,4 +1,20 @@
 #!/usr/bin/make -f
 
+include /usr/share/dpkg/architecture.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# Define the OS
+ifeq ($(DEB_HOST_GNU_SYSTEM), linux-gnu)
+        target = linux CC_LINUX='$$(CC)'
+else ifeq ($(DEB_HOST_GNU_SYSTEM), kfreebsd-gnu)
+        target = freebsd CC_FREEBSD='$$(CC)'
+else
+        target = generic CC_GENERIC='$$(CC)'
+endif
+
 %:
 	dh $@
+
+override_dh_auto_build:
+	dh_auto_build -- $(target)

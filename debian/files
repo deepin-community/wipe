@@ -1,0 +1,3 @@
+wipe-dbgsym_0.24-4_amd64.deb debug optional automatic=yes
+wipe_0.24-4_amd64.buildinfo utils optional
+wipe_0.24-4_amd64.deb utils optional

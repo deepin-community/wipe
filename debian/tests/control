@@ -1,0 +1,5 @@
+Test-Command: wipe -h
+Restrictions: allow-stderr, superficial
+
+Test-Command: echo ok > $AUTOPKGTEST_TMP/test && wipe -fq $AUTOPKGTEST_TMP/test
+Restrictions: allow-stderr

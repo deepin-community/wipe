@@ -1,5 +1,458 @@
-template-repository (1.0-1) unstable; urgency=medium
+wipe (0.24-9) unstable; urgency=medium
 
-  * Initial release
+  * debian/control: bumped Standards-Version to 4.6.0.1.
+  * debian/watch: updated search rule.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Fri, 29 Oct 2021 00:16:17 -0300
+
+wipe (0.24-8) unstable; urgency=medium
+
+  * debian/control: bumped Standards-Version to 4.5.1.
+  * debian/copyright: updated packaging copyright years.
+  * debian/patches/:
+      - Added a leading zero to all patch names.
+      - 010_hide-filenames.patch: added fields Origin and Forwarded.
+      - 020_fix-warnings.patch: added field Forwarded.
+      - 030_fix-spelling.patch: added field Forwarded.
+      - 040_fix-spellings-manpage.patch: added field Forwarded.
+  * debian/watch: updated the search rule to make it compliant with new
+    standards of the GitHub.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Sat, 21 Aug 2021 14:33:44 -0300
+
+wipe (0.24-7) unstable; urgency=medium
+
+  * debian/control: migrated DH level to 13.
+  * debian/copyright: split GPL license text into GPL-2 and GPL-2+.
+  * debian/tests/control: set a CI test as superficial.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Sat, 19 Sep 2020 00:24:07 -0300
+
+wipe (0.24-6) unstable; urgency=medium
+
+  [ Joao Eriberto Mota Filho ]
+  * debian/copyright: updated packaging copyright years.
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+  [ Samuel Henrique ]
+  * Configure git-buildpackage for Debian.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Mon, 24 Feb 2020 20:01:11 -0300
+
+wipe (0.24-5) unstable; urgency=medium
+
+  [ Joao Eriberto Mota Filho ]
+  * Using new DH level format. Consequently:
+      - debian/compat: removed.
+      - debian/control: changed from 'debhelper' to 'debhelper-compat' in
+        Build-Depends field and bumped level to 12.
+  * debian/control:
+      - Added 'Rules-Requires-Root: binary-targets' to source stanza.
+      - Bumped Standards-Version to 4.5.0.
+  * debian/copyright:
+      - Added packaging rights for Samuel Henrique.
+      - Updated packaging copyright years.
+      - Using GitHub/issues address in Upstream-Contact field.
+  * debian/patches/40_fix-spellings-manpage.patch: created to fix some spelling
+    errors in manpage.
+  * debian/rules: added an override to remove a duplicate manpage.
+
+  [ Samuel Henrique ]
+  * Add salsa-ci.yml.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Fri, 07 Feb 2020 09:58:42 -0300
+
+wipe (0.24-4) unstable; urgency=medium
+
+  * debian/copyright:
+      - Added rights for Raphaël Hertzog.
+      - Updated packaging copyright years.
+  * debian/patches/:
+      - 30_fix-spelling.patch: added to fix a spelling  error in final binary.
+      - 50_hide-filenames.patch: renamed to 10_hide-filenames.patch.
+      - 60_fix-warnings.patch: renamed to 20_fix-warnings.patch.
+  * debian/tests/*: added to perform trivial tests.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Tue, 20 Nov 2018 18:11:21 -0200
+
+wipe (0.24-3) unstable; urgency=medium
+
+  * Team upload.
+  * Update team maintainer address to Debian Security Tools
+    <team+pkg-security@tracker.debian.org>
+  * Update Vcs-Git and Vcs-Browser for the move to salsa.debian.org
+  * Fix cross-builds by telling the build system to use our CC.
+    Thanks to Helmut Grohne <helmut@subdivi.de> (Closes: #901176)
+  * Use /usr/share/dpkg/architecture.mk instead of querying dpkg-architecture
+    ourselves
+  * Re-enable patch to fix compiler warnings
+  * Refresh all patches
+  * Change priority to optional
+  * Bump Standards-Version to 4.2.1 and debhelper compat level to 11.
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Sun, 02 Sep 2018 14:50:52 +0200
+
+wipe (0.24-2) unstable; urgency=medium
+
+  * debian/copyright: removed an outdated upstream email address.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Thu, 17 Nov 2016 19:55:39 -0200
+
+wipe (0.24-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump DH level to 10.
+  * New upstream homepage.
+  * debian/copyright:
+      - Updated the header.
+      - Updated the upstream copyright years.
+  * debian/patches/:
+      - Removed the following patches because the upstream fixed the source
+        code (thanks Berke).
+          ~ 10_add-hardening.patch
+          ~ 20_fix-manpage.patch
+          ~ 30_fix-spelling-binary.patch
+          ~ 40-fix_warnings.patch
+  * debian/README.source: removed. The upstream is alive again. So, the
+    explanation provided by this file is useless now.
+  * debian/watch: updated to use the GitHub as source.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Tue, 01 Nov 2016 12:29:42 -0200
+
+wipe (0.22-4) unstable; urgency=medium
+
+  * debian/control:
+      - Bumped Standards-Version to 3.9.8.
+      - Improved the long description.
+      - Updated the Vcs-* fields to use https instead of http and git.
+  * debian/copyright: updated packaging copyright years.
+  * debian/patches/:
+      - 001_fix-manpages.diff: removed. No longer necessary escape hyphens in
+        manpages.
+      - 002-add-hardening: renamed to 10_add-hardening.patch.
+      - 20_fix-manpage.patch:
+          ~ Added to fix a spelling error and remove invalid macro SP.
+          ~ Fix a wrong example. Thanks to (No Name)
+            <petes-bugs@thegoldenear.org>. (Closes: #411971)
+          ~ Make clearer the -Q option use. (LP: #801472)
+          ~ Make the man page clear about number of default passes. For this,
+            thanks to Runa Sandvik <runa.sandvik@gmail.com> (Closes: #544774)
+      - 30_fix-spelling-binary.patch: added to fix a spelling error in final
+        binary.
+      - 40-fix_warnings.patch: added to fix some GCC warnings.
+      - 50_hide-filenames.patch: added to really delete filenames of deleted
+        files. Thanks to Timo Boettcher <timo.boettcher@redteam-pentesting.de,
+        debian@timoboettcher.name> (Closes: #726388)
+      - 60_fix-warnings.patch: added to fix some GCC warnings in previous
+        patch.
+  * debian/README.source: added to tell about new upstream's repository.
+  * debian/rules:
+      - Added specific rules to build to GNU/kFreeBSD.
+      - Removed unnecessary lines because the current upstream Makefile already
+        provides all necessary flags.
+  * debian/watch: bumped to version 4.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Tue, 06 Sep 2016 14:44:36 -0300
+
+wipe (0.22-3) unstable; urgency=medium
+
+  * Upload to unstable.
+  * debian/copyright: changed from 'and' to 'or' in License field in GPL text.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Tue, 05 May 2015 11:21:50 -0300
+
+wipe (0.22-2) experimental; urgency=medium
+
+  * New co-maintainer.
+  * Updated DH level to 9.
+  * Renaming:
+      - From: wipe.dirs, wipe.docs, wipe.examples, wipe.manpages.
+      - To: dirs, docs, examples, manpages.
+  * debian/control:
+      - Bumped Standards-Version to 3.9.6.
+      - Improved the long description (added the forensics word).
+      - Updated the Vcs-* fields.
+  * debian/copyright:
+      - Updated the copyright years and names.
+      - Updated the upstream email address.
+  * debian/patches/002-add-hardening: added to enable the GCC hardening.
+  * debian/rules:
+      - Added the DEB_BUILD_MAINT_OPTIONS variable to fix the issues
+        pointed by blhc.
+      - Little adjustment in CFLAGS.
+  * debian/watch: improved and added the GitHub as a future possibility.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Sun, 22 Feb 2015 22:21:36 -0300
+
+wipe (0.22-1) unstable; urgency=low
+
+  * Team upload.
+  * New upstream release
+  * Switch to debhelper 8
+  * Update to standards 3.9.2
+  * Switch to 3.0 (quilt) source package format
+  * Remove useless lintian overrides (use dch --team to avoid Lintian
+    warnings)
+  * Add patch to fix manpages syntax
+  * Update VCS-* fields
+  * Update copyright information and fix DEP-5 syntax
+
+ -- Julien Valroff <julien@debian.org>  Sat, 17 Sep 2011 09:26:40 +0200
+
+wipe (0.21-9) unstable; urgency=low
+
+  * Minimizing rules file.
+  * Setting uploaders to Christophe.
+
+ -- Daniel Baumann <daniel@debian.org>  Wed, 29 Jul 2009 21:12:43 +0200
+
+wipe (0.21-8) unstable; urgency=low
+
+  * Updating package to standards version 3.8.2.
+  * Updating upstream homepage.
+  * Adding lintian overrides.
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 09 Jul 2009 12:55:00 +0200
+
+wipe (0.21-7) unstable; urgency=low
+
+  * Updating vcs fields.
+  * Replacing obsolete dh_clean -k with dh_prep.
+  * Prefixing debhelper files with package name.
+  * Updating to standards 3.8.1.
+  * Updating year in copyright file.
+  * Tidy rules file.
+  * Using correct rfc-2822 date formats in changelog.
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 28 May 2009 22:58:30 +0200
+
+wipe (0.21-6) unstable; urgency=low
+
+  * Fixing git-dch email address mistake.
+  * Updating to standards 3.8.0.
+  * Upgrading package to debhelper 7.
+  * Sorting vcs fields in control file.
+  * Adding full license headers to copyright file.
+
+ -- Daniel Baumann <daniel@debian.org>  Sun, 14 Sep 2008 10:18:43 +0200
+
+wipe (0.21-5) unstable; urgency=low
+
+  * Removing useless whitespaces.
+  * Bumping package to debhelper 6.
+  * Setting maintainer to Debian Forensics.
+  * Adding vcs fields in control.
+  * Rewritten copyright in machine readable form.
+  * Reordering rules.
+
+ -- Daniel Baumann <daniel@debian.org>  Fri, 22 Feb 2008 10:03:00 +0100
+
+wipe (0.21-4) unstable; urgency=low
+
+  * Bumped to new policy.
+  * Using new homepage field in control.
+  * Don't hide make errors in clean target of rules.
+  * Removing non-existing distclean call in clean target of rules.
+
+ -- Daniel Baumann <daniel@debian.org>  Sun, 23 Dec 2007 21:05:00 +0100
+
+wipe (0.21-3) unstable; urgency=low
+
+  * Minor cleanups.
+  * Bumped package to debhelper 5.
+
+ -- Daniel Baumann <daniel@debian.org>  Tue, 01 May 2007 13:13:00 +0200
+
+wipe (0.21-2) unstable; urgency=low
+
+  * New maintainer.
+  * Adjusted debian/* to my own customs.
+
+ -- Daniel Baumann <daniel@debian.org>  Mon, 16 Oct 2006 13:10:00 +0200
+
+wipe (0.21-1) unstable; urgency=low
+
+  * Acknowledge the changes made in the NMU 0.20-2.1. Thanks to Max Kellermann
+    for the patch and Alexander Wirt for the NMU!
+    Closes: Bug#383467
+  * The NMU patch for Bug#383467 are now incorporated upstream.
+  * debian/README.Debian: removed because upstream removed the files rc6.c,
+    rc6.h and secure_del.html from the tarball. Now the Debian tar.gz no
+    longer differs from the upstream .tar.gz.
+  * debian/control: Bumped Standards-Version to 3.7.2. No changes required.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Sat, 23 Sep 2006 13:02:56 +0200
+
+wipe (0.20-2.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * Fixes build-target detection, use off_t for length (Closes: #383467).
+    Thanks to Max Kellermann for the patches
+
+ -- Alexander Wirt <formorer@debian.org>  Sat, 16 Sep 2006 19:03:59 +0200
+
+wipe (0.20-2) unstable; urgency=low
+
+  * Closes: #354734: typo in wipe.1 man page
+  * debian/control: Bumped Standards-Version to 3.6.2
+  * debian/control: build-depend on debhelper >= 4.0
+  * debian/rules: dh_compat = 4
+
+ -- Thomas Schoepf <schoepf@debian.org>  Mon, 13 Mar 2006 11:14:46 +0100
+
+wipe (0.20-1) unstable; urgency=low
+
+  * New upstream version.
+  * This version includes the patch written by Jim Paris for large file
+    support. Thanks!
+    Closes: #190100: wipe 0.18-1 cannot overwrite files/block devices >4 GB
+    Closes: #252428: Only wipes beginning of a device.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Sun, 13 Jun 2004 11:50:12 +0200
+
+wipe (0.19.20030913-1) unstable; urgency=low
+
+  * New upstream version.
+  * Upgraded Standards-Version to 3.6.1. No changes required.
+  * Includes updates for Bug#190100: wipe 0.18-1 cannot overwrite files/block
+    devices >4 GB
+    I am unable to test them so I do not yet close the bug.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Sun, 28 Sep 2003 23:14:15 +0200
+
+wipe (0.18-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Sun, 02 Feb 2003 15:18:07 +0100
+
+wipe (0.17-2) unstable; urgency=low
+
+  * wipe has a new homepage and upstream a new email address.
+  * wipe.c: restored check for "." and ".." in recursive()
+    Closes: #179381: wipe: traverse parent directories check lost
+      in upgrade
+
+ -- Thomas Schoepf <schoepf@debian.org>  Sun, 02 Feb 2003 12:17:17 +0100
+
+wipe (0.17-1) unstable; urgency=low
+
+  * New upstream version.
+  * Closes: #169910: wipe -k <symlink> does nothing
+  * Closes: #170099: Does not work properly on large devices
+
+ -- Thomas Schoepf <schoepf@debian.org>  Fri, 17 Jan 2003 19:13:09 +0100
+
+wipe (0.16-9) unstable; urgency=low
+
+  * debian/control: Standards-Version: 3.5.7
+  * Makefile: move compilation options into debian/rules.
+  * no longer create /usr/doc -> /usr/share/doc symlink.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Fri, 15 Nov 2002 21:10:53 +0100
+
+wipe (0.16-8) unstable; urgency=low
+
+  * Compile with -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64.
+    Closes: Bug#145605: wipe: Wipe can't wipe files larger than 2Gig.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Fri, 03 May 2002 13:27:58 +0200
+
+wipe (0.16-7) unstable; urgency=low
+
+  * Closes: Bug#134416: doesn't compile on arm
+
+ -- Thomas Schoepf <schoepf@debian.org>  Fri, 01 Mar 2002 22:34:36 +0100
+
+wipe (0.16-6) unstable; urgency=low
+
+  * Closes: Bug#126880: wipe: source URL appears incorrect
+
+ -- Thomas Schoepf <schoepf@debian.org>  Sun, 30 Dec 2001 15:40:00 +0100
+
+wipe (0.16-5) unstable; urgency=low
+
+  * Closes: Bug#111583: "wipe" WARNING (it will delete parent files and
+    directories!)
+
+ -- Thomas Schoepf <schoepf@debian.org>  Mon, 17 Sep 2001 10:36:24 +0200
+
+wipe (0.16-4) unstable; urgency=low
+
+  * Closes: Bug#101645: [hurd] doesn't build
+
+ -- Thomas Schoepf <schoepf@debian.org>  Sun, 08 Jul 2001 16:39:43 +0200
+
+wipe (0.16-3) unstable; urgency=low
+
+  * Closes: Bug#85519: wipe: fails to build from source
+    Thanks Berke!
+
+ -- Thomas Schoepf <schoepf@debian.org>  Sun, 18 Feb 2001 01:56:39 +0100
+
+wipe (0.16-2) unstable; urgency=low
+
+  * Updated download and email address.
+  * Switched to debhelper v2.
+  * Bumped Standards-Version to 3.2.0
+
+ -- Thomas Schoepf <schoepf@debian.org>  Sat, 05 Aug 2000 01:10:37 +0200
+
+wipe (0.16-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Fri, 31 Dec 1999 00:07:52 +0100
+
+wipe (0.15-4) unstable; urgency=low
+
+  * Debhelper now takes care of the FHS. (closes: #44595)
+
+ -- Thomas Schoepf <schoepf@debian.org>  Wed, 08 Sep 1999 18:22:36 +0200
+
+wipe (0.15-3) unstable; urgency=low
+
+  * debian/control: Standards-Version: 3.0.1.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Mon, 06 Sep 1999 16:24:59 +0200
+
+wipe (0.15-2) unstable; urgency=low
+
+  * Previous upload closes: #41108.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Fri, 30 Jul 1999 20:57:14 +0200
+
+wipe (0.15-1) unstable; urgency=low
+
+  * New upstream version. (closes: Bug #41108)
+
+ -- Thomas Schoepf <schoepf@debian.org>  Tue, 27 Jul 1999 21:00:02 +0200
+
+wipe (0.14-3) unstable; urgency=low
+
+  * Added /usr/doc/wipe -> /usr/share/doc/wipe transition link.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Thu, 22 Jul 1999 12:09:35 +0200
+
+wipe (0.14-2) unstable; urgency=low
+
+  * Comply with FHS 2.0 (/usr/share/doc, /usr/share/man).
+  * debian/control: Standards-Version: 3.0.0.
+  * debian/copyright: licenses now in usr/share/common-licenses.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Fri, 09 Jul 1999 16:49:55 +0200
+
+wipe (0.14-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Sat, 03 Jul 1999 13:53:11 +0200
+
+wipe (0.12-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Thomas Schoepf <schoepf@debian.org>  Thu, 17 Jun 1999 02:01:24 +0200

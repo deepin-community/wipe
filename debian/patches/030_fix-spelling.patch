@@ -1,0 +1,17 @@
+Description: fix a spelling error.
+Author: Joao Eriberto Mota Filho <eriberto@debian.org>
+Forwarded: not-needed
+Last-Update: 2018-11-20
+Index: wipe/wipe.c
+===================================================================
+--- wipe.orig/wipe.c
++++ wipe/wipe.c
+@@ -1084,7 +1084,7 @@ static int dothejob (char *fn)
+ 
+             if (!o_silent) {
+                 if (o_quick) 
+-                    fprintf (stderr, "\rWipoing %.32s, pass %d in quick mode   ", fn, i);
++                    fprintf (stderr, "\rWiping %.32s, pass %d in quick mode   ", fn, i);
+                 else
+                     fprintf (stderr, "\rWiping %.32s, pass %-2d (%-2d)   ", fn, i, p[i]);
+                 middle_of_line = 1;
